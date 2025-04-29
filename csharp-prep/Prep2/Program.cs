@@ -33,5 +33,14 @@ class Program
             string grade = "F";
             Console.WriteLine($"Your grade is: {grade}");
         }
+
+        if (x >= 70)
+        {
+            Console.WriteLine("Congrats! You passed.");
+        }
+        else
+        {
+            Console.WriteLine("Sorry, you didn't pass. Better luck next time.");
+        }
     }
 }
