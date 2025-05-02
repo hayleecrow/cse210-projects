@@ -17,8 +17,16 @@ class Program
                 numbers.Add(number);
             }
         }
+        
+        int sum = 0;
+        foreach (int i in numbers)
+        {
+            sum += i;
+        }
 
-        // something wrong with this, I think I need to interate it to see the whole list
-        Console.WriteLine(numbers);
+        int count = numbers.Count;
+
+        Console.WriteLine($"The sum is: {sum}");
+        Console.WriteLine($"{count}");
     }
 }
