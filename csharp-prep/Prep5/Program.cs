@@ -29,9 +29,17 @@ class Program
             return square;
         }
 
+        static void DisplayResult(string name, int square)
+        {
+            Console.WriteLine($"{name}, the square of your number is {square}");
+        }
+
         DisplayWelcome();
+
         string name = PromptUserName();
         int num = PromptUserNumber();
-        Console.WriteLine($"{name}, the square of your number is {SquareNumber(num)}");
+        int square = SquareNumber(num);
+        
+        DisplayResult(name, square);
     }
 }
