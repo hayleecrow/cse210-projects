@@ -1,5 +1,5 @@
 using System;
-// using System.Collections.Generic;
+using System.Collections.Generic;
 class Program
 {
     static void Main(string[] args)
@@ -25,7 +25,7 @@ class Program
         }
 
         int count = numbers.Count;
-        int average = sum / count;
+        float average = ((float)sum) / count;
 
         int largest = 0;
         foreach (int n in numbers)
