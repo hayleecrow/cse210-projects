@@ -25,8 +25,19 @@ class Program
         }
 
         int count = numbers.Count;
+        int average = sum / count;
+
+        int largest = 0;
+        foreach (int n in numbers)
+        {
+            if (n > largest)
+            {
+                largest = n;
+            }
+        }
 
         Console.WriteLine($"The sum is: {sum}");
-        Console.WriteLine($"{count}");
+        Console.WriteLine($"The average is: {average}");
+        Console.WriteLine($"The largest number is: {largest}");
     }
 }
