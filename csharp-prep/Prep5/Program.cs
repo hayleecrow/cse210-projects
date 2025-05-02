@@ -23,8 +23,15 @@ class Program
             return favNumber;
         }
 
+        static int SquareNumber(int number)
+        {
+            int square = number * number;
+            return square;
+        }
+
         DisplayWelcome();
-        PromptUserName();
-        PromptUserNumber();
+        string name = PromptUserName();
+        int num = PromptUserNumber();
+        Console.WriteLine($"{name}, the square of your number is {SquareNumber(num)}");
     }
 }
