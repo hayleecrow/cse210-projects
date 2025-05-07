@@ -6,10 +6,11 @@ public class Resume
 
     public void Display()
     {
-        Console.WriteLine(_name);
-        for (int i = 0; ;i++)
+        Console.WriteLine($"Name: {_name}");
+        Console.WriteLine($"Jobs:");
+        for (int i = 0; i < _jobs.Count; i++)
         {
-            Console.WriteLine(_jobs[i]._jobTitle);
+            _jobs[i].Display();
         }
     }
 }

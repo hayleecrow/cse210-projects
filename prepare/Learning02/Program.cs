@@ -11,8 +11,6 @@ class Program
         job1._startYear = 2020;
         job1._endYear = 2025;
 
-        job1.Display();
-
         Job job2 = new Job();
 
         job2._jobTitle = "Programmer";
@@ -20,12 +18,12 @@ class Program
         job2._startYear = 2017;
         job2._endYear = 2024;
 
-        job2.Display();
-
         Resume myResume = new Resume();
+
+        myResume._name = "John Doe";
         myResume._jobs.Add(job1);
         myResume._jobs.Add(job2);
-        Console.WriteLine(myResume._jobs[0]._jobTitle);
-        Console.WriteLine(myResume._jobs[1]._jobTitle);
+        
+        myResume.Display();
     }
 }
