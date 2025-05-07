@@ -12,5 +12,11 @@ public class Resume
         {
             _jobs[i].Display();
         }
+
+        // or could do the following:
+        // foreach (Job job in _jobs)
+        // {
+        //    job.Display();
+        // }
     }
 }
