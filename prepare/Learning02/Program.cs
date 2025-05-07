@@ -10,7 +10,7 @@ class Program
         job1._startYear = 2020;
         job1._endYear = 2025;
 
-        Console.WriteLine($"{job1._jobTitle} ({job1._company}) {job1._startYear}-{job1._endYear}");
+        job1.Display();
 
         Job job2 = new Job();
         job2._jobTitle = "Programmer";
@@ -18,6 +18,6 @@ class Program
         job2._startYear = 2017;
         job2._endYear = 2024;
 
-        Console.WriteLine($"{job2._jobTitle} ({job2._company}) {job2._startYear}-{job2._endYear}");
+        job2.Display();
     }
 }
