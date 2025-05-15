@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 class Program
 {
@@ -43,7 +44,13 @@ class Program
             /// Save a new file
             else if (i == 4)
             {
+                /// Console.Write($"What is the name of your file?");
+                string filename = "myFile";
 
+                using (StreamWriter outputFile = new StreamWriter(filename))
+                {
+                    outputFile.WriteLine("first line of the file.");
+                }
             }
             else if (i != 5)
             {
