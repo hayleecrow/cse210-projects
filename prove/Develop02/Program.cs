@@ -6,6 +6,7 @@ class Program
     {
         Console.WriteLine("Welcome to the Journal Program!");
         int i = 0;
+        Entry entry1 = new Entry();
 
         while (i != 5)
         {
@@ -19,13 +20,14 @@ class Program
             int choice = int.Parse(Console.ReadLine());
             i = choice;
 
+
             if (i == 1)
             {
-
+                entry1.WriteEntry();
             }
             else if (i == 2)
             {
-
+                Console.WriteLine($"Date: {entry1._dateTime} - Prompt: {entry1._entry}");
             }
             else if (i == 3)
             {
@@ -33,8 +35,10 @@ class Program
             }
             else if (i == 4)
             {
-                
+
             }
+
+            Console.WriteLine();
         }
     }
 }
