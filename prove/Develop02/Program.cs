@@ -15,8 +15,8 @@ class Program
             Console.WriteLine("Please select one of the following choices:");
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
-            Console.WriteLine("3. Load");
-            Console.WriteLine("4. Save");
+            Console.WriteLine("3. Save");
+            Console.WriteLine("4. Load");
             Console.WriteLine("5. Quit");
             Console.Write("What would you like to do? ");
             int choice = int.Parse(Console.ReadLine());
@@ -31,31 +31,13 @@ class Program
             {
                 journal.DisplayAllEntries();
             }
-            else if (i == 3) /// Load a file
+            else if (i == 3) /// Save a new file
             {
-                /// this code is from assignment instructions
-                string filename = "myFile.txt";
-                string[] lines = System.IO.File.ReadAllLines(filename);
-
-                foreach (string line in lines)
-                {
-                    string[] parts = line.Split(",");
-
-                    string firstName = parts[0];
-                    string lastName = parts[1];
-                }
-                ///
+                journal.SaveToFile();
             }
-            else if (i == 4) /// Save a new file
+            else if (i == 4) /// Load from a file
             {
-                Console.Write($"What is the name of your file?");
-                string filename = Console.ReadLine();
-
-                using (StreamWriter outputFile = new StreamWriter(filename))
-                {
-                    /// when created, put the entry string to output into this file
-                    outputFile.WriteLine("first line of the file.");
-                }
+                journal.LoadFromFile();
             }
             else if (i != 5)
             {
