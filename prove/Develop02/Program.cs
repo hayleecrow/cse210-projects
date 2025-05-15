@@ -7,7 +7,6 @@ class Program
     {
         Console.WriteLine("Welcome to the Journal Program!");
         int i = 0;
-        Entry entry1 = new Entry();
         Journal journal = new Journal();
 
         while (i != 5)
@@ -24,7 +23,8 @@ class Program
 
             if (i == 1) /// Write a new entry
             {
-                string fullEntry = entry1.WriteEntry();
+                Entry newEntry = new Entry();
+                string fullEntry = newEntry.WriteEntry();
                 journal.AddEntry(fullEntry);
             }
             else if (i == 2) /// Display all entries
