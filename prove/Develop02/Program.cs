@@ -20,19 +20,25 @@ class Program
             int choice = int.Parse(Console.ReadLine());
             i = choice;
 
-
+            /// Write a new entry
             if (i == 1)
             {
                 entry1.WriteEntry();
             }
+
+            /// Display all entries
             else if (i == 2)
             {
                 Console.WriteLine($"Date: {entry1._dateTime} - Prompt: {entry1._entry}");
             }
+
+            /// Load a file
             else if (i == 3)
             {
 
             }
+            
+            /// Save a new file
             else if (i == 4)
             {
 
