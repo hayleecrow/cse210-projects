@@ -7,8 +7,12 @@ class Entry
     public void WriteEntry()
     {
         DateTime theCurrentTime = DateTime.Now;
-        string _dateTime = theCurrentTime.ToShortDateString();
+        _dateTime = theCurrentTime.ToShortDateString();
 
+        /// get a prompt
+        /// var randomString = strings.PickRandom();
         
+        Console.Write($"> ");
+        _entry = Console.ReadLine();
     }
 }
