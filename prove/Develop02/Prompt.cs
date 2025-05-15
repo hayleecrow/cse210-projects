@@ -13,10 +13,12 @@ class Prompt
         "What can I do better tomorrow?",
     };
 
-    public void DisplayRandomPrompt()
+    public string DisplayRandomPrompt()
     {
         Random randomGenerator = new Random();
         int randIndex = randomGenerator.Next(0, _prompts.Count);
         Console.WriteLine(_prompts[randIndex]);
+        string prompt = Console.ReadLine();
+        return prompt;
     }
 }
