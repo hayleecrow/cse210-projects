@@ -18,6 +18,23 @@ class Program
             Console.WriteLine("What would you like to do? ");
             int choice = int.Parse(Console.ReadLine());
             i = choice;
+
+            if (i == 1)
+            {
+
+            }
+            else if (i == 2)
+            {
+
+            }
+            else if (i == 3)
+            {
+
+            }
+            else if (i == 4)
+            {
+                
+            }
         }
     }
 }
