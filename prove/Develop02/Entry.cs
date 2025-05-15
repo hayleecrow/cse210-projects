@@ -5,14 +5,18 @@ class Entry
     Prompt prompt = new Prompt();
     public string _dateTime;
     public string _entry;
-    public void WriteEntry()
+    public string _prompt;
+    public string WriteEntry()
     {
         DateTime theCurrentTime = DateTime.Now;
         _dateTime = theCurrentTime.ToShortDateString();
 
-        prompt.DisplayRandomPrompt();
-        
+        _prompt = prompt.DisplayRandomPrompt();
+
         Console.Write($"> ");
         _entry = Console.ReadLine();
+
+        string fullEntry = $"Date: {_dateTime} - Prompt: {_prompt}\n{_entry}";
+        return fullEntry;
     }
 }

@@ -24,12 +24,12 @@ class Program
 
             if (i == 1) /// Write a new entry
             {
-                entry1.WriteEntry();
+                string fullEntry = entry1.WriteEntry();
+                journal.AddEntry(fullEntry);
             }
             else if (i == 2) /// Display all entries
             {
-                /// Console.WriteLine($"Date: {entry1._dateTime} - Prompt: {entry1._entry}");
-                journal.DisplayAllEntries(entry1._dateTime, entry1._entry);
+                journal.DisplayAllEntries();
             }
             else if (i == 3) /// Load a file
             {

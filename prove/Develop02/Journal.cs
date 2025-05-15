@@ -7,13 +7,13 @@ class Journal
     public void AddEntry(string entry)
     {
         _entries.Add(entry);
-        /// refer to this in Entry class at some point
     }
-    public void DisplayAllEntries(string date, string entry) /// need to change parameter so it displays the whole list
+    public void DisplayAllEntries() /// need to change parameter so it displays the whole list
     {
-        /// Console.WriteLine($"Date: {date} - Prompt: {entry}");
-        string test = $"Date: {date} - Prompt: {entry}\n{entry}";
-        Console.WriteLine(test);
+        foreach (string i in _entries)
+        {
+            Console.WriteLine($"\n{i}");
+        }
     }
     public void SaveToFile()
     {}
