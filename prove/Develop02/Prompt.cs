@@ -15,9 +15,8 @@ class Prompt
 
     public void DisplayRandomPrompt()
     {
-        /// randomPrompt = _prompts.PickRandom();
         Random randomGenerator = new Random();
-        int randIndex = randomGenerator.Next(0,_prompts.Count);
-        Console.WriteLine(randIndex);
+        int randIndex = randomGenerator.Next(0, _prompts.Count);
+        Console.WriteLine(_prompts[randIndex]);
     }
 }
