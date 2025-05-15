@@ -18,7 +18,7 @@ class Program
             Console.WriteLine("3. Load");
             Console.WriteLine("4. Save");
             Console.WriteLine("5. Quit");
-            Console.WriteLine("What would you like to do? ");
+            Console.Write("What would you like to do? ");
             int choice = int.Parse(Console.ReadLine());
             i = choice;
 
@@ -44,11 +44,12 @@ class Program
             /// Save a new file
             else if (i == 4)
             {
-                /// Console.Write($"What is the name of your file?");
-                string filename = "myFile";
+                Console.Write($"What is the name of your file?");
+                string filename = Console.ReadLine();
 
                 using (StreamWriter outputFile = new StreamWriter(filename))
                 {
+                    /// when created, put the entry string to output into this file
                     outputFile.WriteLine("first line of the file.");
                 }
             }
