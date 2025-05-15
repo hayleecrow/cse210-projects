@@ -9,7 +9,6 @@ class Program
         int i = 0;
         Entry entry1 = new Entry();
         Journal journal = new Journal();
-        Prompt prompt = new Prompt();
 
         while (i != 5)
         {
@@ -25,7 +24,6 @@ class Program
 
             if (i == 1) /// Write a new entry
             {
-                prompt.DisplayRandomPrompt();
                 entry1.WriteEntry();
             }
             else if (i == 2) /// Display all entries
