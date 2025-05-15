@@ -9,6 +9,7 @@ class Program
         int i = 0;
         Entry entry1 = new Entry();
         Journal journal = new Journal();
+        Prompt prompt = new Prompt();
 
         while (i != 5)
         {
@@ -22,21 +23,17 @@ class Program
             int choice = int.Parse(Console.ReadLine());
             i = choice;
 
-            /// Write a new entry
-            if (i == 1)
+            if (i == 1) /// Write a new entry
             {
+                prompt.DisplayRandomPrompt();
                 entry1.WriteEntry();
             }
-
-            /// Display all entries
-            else if (i == 2)
+            else if (i == 2) /// Display all entries
             {
                 /// Console.WriteLine($"Date: {entry1._dateTime} - Prompt: {entry1._entry}");
                 journal.DisplayAllEntries(entry1._dateTime, entry1._entry);
             }
-
-            /// Load a file
-            else if (i == 3)
+            else if (i == 3) /// Load a file
             {
                 /// this code is from assignment instructions
                 string filename = "myFile.txt";
@@ -51,9 +48,7 @@ class Program
                 }
                 ///
             }
-
-            /// Save a new file
-            else if (i == 4)
+            else if (i == 4) /// Save a new file
             {
                 Console.Write($"What is the name of your file?");
                 string filename = Console.ReadLine();
