@@ -7,6 +7,7 @@ class Program
         Console.WriteLine("Welcome to the Journal Program!");
         int i = 0;
         Entry entry1 = new Entry();
+        Journal journal = new Journal();
 
         while (i != 5)
         {
@@ -29,7 +30,8 @@ class Program
             /// Display all entries
             else if (i == 2)
             {
-                Console.WriteLine($"Date: {entry1._dateTime} - Prompt: {entry1._entry}");
+                /// Console.WriteLine($"Date: {entry1._dateTime} - Prompt: {entry1._entry}");
+                journal.DisplayAllEntries(entry1._dateTime, entry1._entry);
             }
 
             /// Load a file
@@ -37,11 +39,15 @@ class Program
             {
 
             }
-            
+
             /// Save a new file
             else if (i == 4)
             {
 
+            }
+            else if (i != 5)
+            {
+                Console.WriteLine($"Sorry, that's not a valid option. Please try again.");
             }
 
             Console.WriteLine();
