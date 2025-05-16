@@ -23,9 +23,7 @@ class Program
 
             if (i == 1) /// Write a new entry
             {
-                Entry newEntry = new Entry();
-                string fullEntry = newEntry.WriteEntry();
-                journal.AddEntry(fullEntry);
+                journal.AddEntry();
             }
             else if (i == 2) /// Display all entries
             {

@@ -4,9 +4,11 @@ class Journal
 {
     public List<string> _entries = new List<string>();
     public string _fileName;
-    public void AddEntry(string entry)
+    public void AddEntry()
     {
-        _entries.Add(entry);
+        Entry newEntry = new Entry();
+        string fullEntry = newEntry.WriteEntry();
+        _entries.Add(fullEntry);
     }
     public void DisplayAllEntries() /// need to change parameter so it displays the whole list
     {
