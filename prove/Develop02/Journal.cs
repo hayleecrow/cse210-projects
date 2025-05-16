@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 class Journal
 {
@@ -10,7 +11,7 @@ class Journal
         string fullEntry = newEntry.WriteEntry();
         _entries.Add(fullEntry);
     }
-    public void DisplayAllEntries() /// need to change parameter so it displays the whole list
+    public void DisplayAllEntries()
     {
         foreach (string i in _entries)
         {
@@ -24,8 +25,10 @@ class Journal
 
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
-            /// when created, put the entry string to output into this file
-            outputFile.WriteLine("first line of the file.");
+            foreach (string entry in _entries)
+            {
+                outputFile.WriteLine($"{entry}\n");
+            }
         }
     }
     public void LoadFromFile()
