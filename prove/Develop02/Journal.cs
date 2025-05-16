@@ -20,7 +20,7 @@ class Journal
     }
     public void SaveToFile()
     {
-        Console.Write($"What is the name of your file?");
+        Console.Write($"What is the name of your file? ");
         string filename = Console.ReadLine();
 
         using (StreamWriter outputFile = new StreamWriter(filename))
@@ -33,17 +33,14 @@ class Journal
     }
     public void LoadFromFile()
     {
-        /// this code is from assignment instructions
-        string filename = "myFile.txt";
+        Console.Write($"What is the name of the file? ");
+        string filename = Console.ReadLine();
         string[] lines = System.IO.File.ReadAllLines(filename);
+        Console.WriteLine();
 
         foreach (string line in lines)
         {
-            string[] parts = line.Split(",");
-
-            string firstName = parts[0];
-            string lastName = parts[1];
+            Console.WriteLine(line);
         }
-        ///
     }
 }
