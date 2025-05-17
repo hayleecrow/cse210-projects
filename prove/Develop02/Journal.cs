@@ -40,11 +40,20 @@ class Journal
         string[] lines = System.IO.File.ReadAllLines(filename);
         Console.WriteLine();
 
+        _entries.Clear(); // clears any entries currently in the journal
+
         foreach (string line in lines)
         {
-            Console.WriteLine(line);
-            //_entries.Add(line); // won't display quite right, yet, when use display all method
-            // string[] parts = entry.Split("~~");
+            string[] parts = line.Split("~~");
+
+            Entry newEntry = new Entry();
+            newEntry._dateTime = parts[0];
+            newEntry._prompt = parts[1];
+            newEntry._entry = parts[2];
+
+            _entries.Add(newEntry);
         }
+
+        Console.WriteLine($"\nFile ({filename}) has been loaded.");
     }
 }
