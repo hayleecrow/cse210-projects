@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Collections.Generic; // might make it so List can be a list of Entries: List<Entry>
 
 class Journal
 {
@@ -10,6 +11,8 @@ class Journal
         Entry newEntry = new Entry();
         string fullEntry = newEntry.WriteEntry();
         _entries.Add(fullEntry);
+        // newEntry.WriteEntry();
+        // _entries.Add(newEntry); - then change list data type to Entry, how will it store each entry?
     }
     public void DisplayAllEntries()
     {
@@ -41,6 +44,7 @@ class Journal
         foreach (string line in lines)
         {
             Console.WriteLine(line);
+            _entries.Add(line); // won't display quite right, yet, when use display all method
         }
     }
 }
