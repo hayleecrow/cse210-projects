@@ -4,21 +4,19 @@ using System.Collections.Generic; // might make it so List can be a list of Entr
 
 class Journal
 {
-    public List<string> _entries = new List<string>();
+    public List<Entry> _entries = new List<Entry>();
     public string _fileName;
     public void AddEntry()
     {
         Entry newEntry = new Entry();
-        string fullEntry = newEntry.WriteEntry();
-        _entries.Add(fullEntry);
-        // newEntry.WriteEntry();
-        // _entries.Add(newEntry); - then change list data type to Entry, how will it store each entry?
+        newEntry.WriteEntry();
+        _entries.Add(newEntry); // then change list data type to Entry, how will it store each entry?
     }
     public void DisplayAllEntries()
     {
-        foreach (string i in _entries)
+        foreach (Entry e in _entries)
         {
-            Console.WriteLine($"\n{i}");
+            Console.WriteLine($"\nDate: {e._dateTime} - Prompt: {e._prompt}\n{e._entry}");
         }
     }
     public void SaveToFile()
@@ -28,9 +26,10 @@ class Journal
 
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
-            foreach (string entry in _entries)
+            foreach (Entry e in _entries)
             {
-                outputFile.WriteLine($"{entry}\n");
+                // outputFile.WriteLine($"{entry}\n");
+                outputFile.WriteLine($"{e._dateTime}~~{e._prompt}~~{e._entry}");
             }
         }
     }
@@ -44,7 +43,8 @@ class Journal
         foreach (string line in lines)
         {
             Console.WriteLine(line);
-            _entries.Add(line); // won't display quite right, yet, when use display all method
+            //_entries.Add(line); // won't display quite right, yet, when use display all method
+            // string[] parts = entry.Split("~~");
         }
     }
 }
