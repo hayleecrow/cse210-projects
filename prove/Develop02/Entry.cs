@@ -10,6 +10,7 @@ class Entry
     {
         DateTime theCurrentTime = DateTime.Now;
         _dateTime = theCurrentTime.ToShortDateString();
+        Console.WriteLine($"\nThe date is: {_dateTime}");
 
         _prompt = prompt.DisplayRandomPrompt();
 
