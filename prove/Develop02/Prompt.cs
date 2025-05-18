@@ -17,8 +17,8 @@ class Prompt
     {
         Random randomGenerator = new Random();
         int randIndex = randomGenerator.Next(0, _prompts.Count);
-        string prompt = _prompts[randIndex];
-        Console.WriteLine(prompt);
+        string prompt = _prompts[randIndex]; // picks random prompt from list
+        Console.WriteLine(prompt); // dsiplays prompt
         return prompt;
     }
 }
