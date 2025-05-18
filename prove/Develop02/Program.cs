@@ -35,7 +35,7 @@ class Program
                     }
                     else if (answer == "yes")
                     {
-                        Console.WriteLine($"Okay! Here you go!\n");
+                        Console.WriteLine($"Okay! Here you go!");
                     }
                     else
                     {

@@ -9,8 +9,8 @@ class Journal
     public void AddEntry()
     {
         Entry newEntry = new Entry();
-        newEntry.WriteEntry();
-        _entries.Add(newEntry); // then change list data type to Entry, how will it store each entry?
+        newEntry.WriteEntry(); // prompts user to write a journal entry
+        _entries.Add(newEntry);
     }
     public void DisplayAllEntries()
     {
@@ -24,18 +24,21 @@ class Journal
         Console.Write($"What is the name of your file? ");
         string filename = Console.ReadLine();
 
+        // will create new file if file doesn't already exist
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
             foreach (Entry e in _entries)
             {
-                // outputFile.WriteLine($"{entry}\n");
+                // writes the entries onto the file
                 outputFile.WriteLine($"{e._dateTime}~~{e._prompt}~~{e._entry}");
             }
         }
+
+        Console.WriteLine($"File saved.");
     }
     public void LoadFromFile()
     {
-        Console.Write($"What is the name of the file? ");
+        Console.Write($"\nWhat is the name of the file? ");
         string filename = Console.ReadLine();
         string[] lines = System.IO.File.ReadAllLines(filename);
         Console.WriteLine();
@@ -54,6 +57,6 @@ class Journal
             _entries.Add(newEntry);
         }
 
-        Console.WriteLine($"\nFile ({filename}) has been loaded.");
+        Console.WriteLine($"The file {filename} has been loaded into your journal.");
     }
 }
