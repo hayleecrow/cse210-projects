@@ -21,7 +21,28 @@ class Program
 
             if (i == "1") /// Write a new entry
             {
-                journal.AddEntry();
+                bool question = true;
+                while (question == true)
+                {
+                    journal.AddEntry(); /// Prompts user to write a new entry
+
+                    Console.WriteLine($"\nWould you like to respond to another prompt (yes or no)? ");
+                    string answer = Console.ReadLine();
+
+                    if (answer == "no")
+                    {
+                        question = false;
+                    }
+                    else if (answer == "yes")
+                    {
+                        Console.WriteLine($"Okay! Here you go!\n");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Sorry, not a valid option. Returning to menu...");
+                        question = false;
+                    }
+                }
             }
             else if (i == "2") /// Display all entries
             {
