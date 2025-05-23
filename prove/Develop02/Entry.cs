@@ -2,7 +2,7 @@ using System;
 
 class Entry
 {
-    Prompt prompt = new Prompt();
+    Prompt _randPrompt = new Prompt();
     public string _dateTime;
     public string _entry;
     public string _prompt;
@@ -12,7 +12,7 @@ class Entry
         _dateTime = theCurrentTime.ToShortDateString();
         Console.WriteLine($"\nThe date is: {_dateTime}");
 
-        _prompt = prompt.DisplayRandomPrompt();
+        _prompt = _randPrompt.DisplayRandomPrompt();
 
         Console.Write($"> ");
         _entry = Console.ReadLine();
