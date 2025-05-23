@@ -6,9 +6,9 @@ class Program
     {
         Fraction fraction1 = new Fraction();
         Console.WriteLine(fraction1.GetTop());
-        // Console.WriteLine(fraction1.SetTop(4));
+        fraction1.SetTop(4);
         Console.WriteLine(fraction1.GetBottom());
-        Console.WriteLine(fraction1.GetTop());
+        fraction1.SetBottom(8);
 
         Fraction fraction2 = new Fraction(6);
 
