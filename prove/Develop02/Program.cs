@@ -2,6 +2,12 @@ using System;
 
 class Program
 {
+    // Exceeded Requirements:
+    // I added a way for users to have the option to
+    // answer more than one prompt before returning
+    // to the menu. The users can also see the date
+    // displayed right before they write their journal entry.
+
     static void Main(string[] args)
     {
         Console.WriteLine("Welcome to the Journal Program!");
