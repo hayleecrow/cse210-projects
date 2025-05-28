@@ -9,6 +9,12 @@ class Scripture
     {
         /// Initial scripture constructor iterates through text and creates word object for
         /// each word and then adds it to the word list
+        string[] words = text.Split(" ");
+        foreach (string word in words)
+        {
+            Word newWord = new Word(word);
+        }
+        _reference = reference;
     }
     public void DisplayText()
     {
