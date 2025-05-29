@@ -28,8 +28,4 @@ class Scripture
     {
         //
     }
-    private void ClearConsole()
-    { 
-        //
-    }
 }
