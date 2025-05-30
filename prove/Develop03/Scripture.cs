@@ -13,25 +13,18 @@ class Scripture
         foreach (string word in words)
         {
             Word newWord = new Word(word);
+            _scriptureText.Add(newWord);
         }
         _reference = reference;
     }
     public void DisplayText()
     {
-        string action = "";
+        Console.Clear();
 
-        while (action == "")
+        Console.WriteLine($"\n{_reference}\n");
+        foreach (Word word in _scriptureText)
         {
-            Console.Clear();
-
-            Console.WriteLine($"\n{_reference}\n{_scriptureText}");
-
-            Console.WriteLine($"Press enter to take out more words or type 'quit' to finish");
-            string prompt = Console.ReadLine();
-            if (prompt.ToLower() == "quit")
-            {
-                action = "quit";
-            }
+            word.Display();
         }
     }
     private void HideWords()
