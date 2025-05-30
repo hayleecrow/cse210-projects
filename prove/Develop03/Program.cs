@@ -11,23 +11,25 @@ class Program
         string scriptureText = @"Look unto me in every thought; doubt not, fear not. Behold the wounds which pierced my side, and also the prints of the nails in my hands and feet; be faithful, keep my commandments, and ye shall inherit the kingdom of heaven. Amen.";
         string scriptureRef = reference.GetReference(); // puts reference into a traditional format
         Scripture scripture = new Scripture(scriptureText, scriptureRef); // pass ref and text into scripture when initialize
-        ///Console.WriteLine($"\n{scriptureRef}\n{scriptureText}");
 
-        bool action = true;
+        string action = "";
 
-        while (action == true)
-        { 
-            //
+        while (action == "")
+        {
+            scripture.DisplayText();
+
+            Console.WriteLine($"Press enter to take out more words or type 'quit' to finish");
+            string prompt = Console.ReadLine();
+            if (prompt == "")
+            { 
+                // hide words
+            }
+            else if (prompt.ToLower() == "quit")
+            {
+                action = "quit";
+            }
         }
 
-        /// call DisplayText function
-
-            // create while loop
-
-            Console.WriteLine("clearing console...");
-        Console.Clear();
-
-        // Console.WriteLine($"Press enter to take out more words or type 'quit' to finish");
         Console.WriteLine();
     }
 }
