@@ -18,7 +18,21 @@ class Scripture
     }
     public void DisplayText()
     {
-        // Scripture class Display text has while loop ???
+        string action = "";
+
+        while (action == "")
+        {
+            Console.Clear();
+
+            Console.WriteLine($"\n{_reference}\n{_scriptureText}");
+
+            Console.WriteLine($"Press enter to take out more words or type 'quit' to finish");
+            string prompt = Console.ReadLine();
+            if (prompt.ToLower() == "quit")
+            {
+                action = "quit";
+            }
+        }
     }
     private void HideWords()
     {
