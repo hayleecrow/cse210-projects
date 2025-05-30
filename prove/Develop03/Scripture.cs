@@ -21,7 +21,7 @@ class Scripture
     {
         Console.Clear();
 
-        Console.WriteLine($"\n{_reference}\n");
+        Console.WriteLine($"{_reference}\n");
         foreach (Word word in _scriptureText)
         {
             word.Display();

@@ -18,7 +18,7 @@ class Program
         {
             scripture.DisplayText();
 
-            Console.WriteLine($"Press enter to take out more words or type 'quit' to finish");
+            Console.Write($"\n\nPress enter to take out more words or type 'quit' to finish\n> ");
             string prompt = Console.ReadLine();
             if (prompt == "")
             { 
