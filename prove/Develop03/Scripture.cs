@@ -27,9 +27,20 @@ class Scripture
             word.Display();
         }
     }
-    private void HideWords()
+    public void HideWords()
     {
-        //
+        Random random = new Random();
+
+        for (int i = 0; i < 3; i++) // picks 3 words at random to hide
+        {
+            int index = random.Next(0, _scriptureText.Count());
+            while (_scriptureText[index].GetIsHidden() == true) // won't hide a word that's already been hidden
+            {
+                index = random.Next(0, _scriptureText.Count());
+            }
+
+            _scriptureText[index].Hide();
+        }
     }
     private void IsCompletelyHidden()
     {
