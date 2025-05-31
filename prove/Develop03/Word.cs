@@ -11,14 +11,13 @@ class Word
     }
     public string Hide()
     {
-        // include iternates to correlate _ to number of letters in word
         string newString = "";
 
         for (int i = 0; i < _word.Count(); i++)
         {
             newString = newString + "_";
         }
-        
+
         _word = newString;
         _isHidden = true;
         return _word;

@@ -7,8 +7,8 @@ class Scripture
     private string _reference;
     public Scripture(string text, string reference)
     {
-        /// Initial scripture constructor iterates through text and creates word object for
-        /// each word and then adds it to the word list
+        // Iterates through text and creates word object for
+        // each word and then adds it to the word list
         string[] words = text.Split(" ");
         foreach (string word in words)
         {
