@@ -2,6 +2,8 @@ using System;
 
 // Stretch idea: also give them option in the middle of
 // program to get all the words back and then try again.
+// To do this would need to add else if and have it use 
+// the original scriptureText to reset the word list in the scripture class
 
 class Program
 {
@@ -21,8 +23,8 @@ class Program
             Console.Write($"\n\nPress enter to take out more words or type 'quit' to finish\n> ");
             string prompt = Console.ReadLine();
             if (prompt == "")
-            { 
-                // hide words
+            {
+                scripture.HideWords();
             }
             else if (prompt.ToLower() == "quit")
             {
