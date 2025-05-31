@@ -3,23 +3,27 @@ using System;
 class Word
 {
     private string _word;
+    private bool _isHidden;
     public Word(string word)
     {
         _word = word;
+        _isHidden = false;
     }
-    private string Hide()
+    public string Hide()
     {
-        return "";
+        // include iternates to correlate _ to number of letters in word
+        _word = "___";
+        _isHidden = true;
+        return _word;
     }
-    private string Show()
+    public string Show()
     {
         //
         return "";
     }
-    private string IsHidden()
+    public bool GetIsHidden()
     {
-        //
-        return "";
+        return _isHidden;
     }
     public void Display()
     {
