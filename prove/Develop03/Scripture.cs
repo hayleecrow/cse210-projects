@@ -7,22 +7,22 @@ class Scripture
     private string _reference;
     public Scripture(string text, string reference)
     {
-        // Iterates through text and creates word object for
-        // each word and then adds it to the word list
+        // Iterates through text and creates word object for each word and then adds it to the word list
         string[] words = text.Split(" ");
         foreach (string word in words)
         {
             Word newWord = new Word(word);
             _scriptureText.Add(newWord);
         }
+        // Initializes reference
         _reference = reference;
     }
     public void DisplayText()
     {
         Console.Clear();
 
-        Console.WriteLine($"{_reference}\n");
-        foreach (Word word in _scriptureText)
+        Console.WriteLine($"{_reference}"); // displays scripture reference
+        foreach (Word word in _scriptureText) // displays rendered scripture text
         {
             word.Display();
         }
@@ -33,7 +33,7 @@ class Scripture
 
         for (int i = 0; i < 3; i++) // picks 3 words at random to hide
         {
-            /// are there any more words not hidden
+            /// Are there any more words not hidden?
             int notHidden = 0;
             bool allHidden = false;
 
@@ -75,11 +75,11 @@ class Scripture
             }
         }
 
-        if (i > 0)
+        if (i > 0) // not all the words are hidden
         {
             return false;
         }
-        else
+        else // all the words are hidden
         {
             return true;
         }
