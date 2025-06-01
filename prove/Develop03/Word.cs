@@ -22,11 +22,6 @@ class Word
         _isHidden = true;
         return _word;
     }
-    public string Show()
-    {
-        //
-        return "";
-    }
     public bool GetIsHidden()
     {
         return _isHidden;
