@@ -13,7 +13,7 @@ class Word
     {
         string newString = "";
 
-        for (int i = 0; i < _word.Count(); i++)
+        for (int i = 0; i < _word.Count(); i++) // replace each letter in the word with a _
         {
             newString = newString + "_";
         }
