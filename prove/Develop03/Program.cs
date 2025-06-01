@@ -1,9 +1,8 @@
 using System;
 
-// Stretch idea: also give them option in the middle of
-// program to get all the words back and then try again.
-// To do this would need to add else if and have it use 
-// the original scriptureText to reset the word list in the scripture class
+/// I didn't have time to do stretch challenge.
+/// Unless you count me displaying the scripture
+/// in a user friendly way as a way of showing creativity.
 
 class Program
 {
@@ -42,3 +41,8 @@ class Program
         Console.WriteLine();
     }
 }
+
+// Stretch idea (didn't actually do): also give them option in the middle of
+// program to get all the words back and then try again.
+// To do this would need to add else if and have it use 
+// the original scriptureText to reset the word list in the scripture class
