@@ -22,7 +22,14 @@ class Program
 
             Console.Write($"\n\nPress enter to take out more words or type 'quit' to finish\n> ");
             string prompt = Console.ReadLine();
-            if (prompt == "")
+
+            bool completely = scripture.IsCompletelyHidden();
+
+            if (completely == true)
+            {
+                action = "quit";
+            }
+            else if (prompt == "")
             {
                 scripture.HideWords();
             }
