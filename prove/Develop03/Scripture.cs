@@ -33,17 +33,55 @@ class Scripture
 
         for (int i = 0; i < 3; i++) // picks 3 words at random to hide
         {
-            int index = random.Next(0, _scriptureText.Count());
-            while (_scriptureText[index].GetIsHidden() == true) // won't hide a word that's already been hidden
+            /// are there any more words not hidden
+            int notHidden = 0;
+            bool allHidden = false;
+
+            foreach (Word word in _scriptureText)
             {
-                index = random.Next(0, _scriptureText.Count());
+                if (word.GetIsHidden() == false) // counts how many words are still not hidden
+                {
+                    notHidden++;
+                }
             }
 
-            _scriptureText[index].Hide();
+            if (notHidden == 0)
+            {
+                allHidden = true;
+            }
+
+            /// if there are still words not hidden then it will hide another word
+            if (allHidden == false)
+            {
+                int index = random.Next(0, _scriptureText.Count());
+                while (_scriptureText[index].GetIsHidden() == true) // won't hide a word that's already been hidden
+                {
+                    index = random.Next(0, _scriptureText.Count());
+                }
+
+                _scriptureText[index].Hide();
+            }
         }
     }
-    private void IsCompletelyHidden()
+    public bool IsCompletelyHidden()
     {
-        //
+        int i = 0;
+
+        foreach (Word word in _scriptureText)
+        {
+            if (word.GetIsHidden() == false) // counts how many words are still not hidden
+            {
+                i++;
+            }
+        }
+
+        if (i > 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 }
