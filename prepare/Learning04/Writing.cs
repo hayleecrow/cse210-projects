@@ -9,7 +9,6 @@ class Writing : Assignment
     }
     public string GetWritingInfo()
     {
-        string info = "";
-        return info;
+        return $"{_title} by {base.GetName()}";
     }
 }
