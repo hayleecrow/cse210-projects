@@ -6,7 +6,8 @@ class Math
     private string _problems;
     public Math(string section, string problems)
     {
-        //
+        _section = section;
+        _problems = problems;
     }
     public string GetHomewordList()
     {
