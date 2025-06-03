@@ -11,7 +11,6 @@ class Math : Assignment
     }
     public string GetHomewordList()
     {
-        string list = "";
-        return list;
+        return $"Section {_section} Problems {_problems}";
     }
 }
