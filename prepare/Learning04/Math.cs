@@ -9,7 +9,7 @@ class Math : Assignment
         _section = section;
         _problems = problems;
     }
-    public string GetHomewordList()
+    public string GetHomeworkList()
     {
         return $"Section {_section} Problems {_problems}";
     }
