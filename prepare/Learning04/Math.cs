@@ -11,6 +11,11 @@ class Math : Assignment
     }
     public string GetHomeworkList()
     {
+        Test();
         return $"Section {_section} Problems {_problems}";
+    }
+    private void Test()
+    {
+        Console.WriteLine("getting list...");
     }
 }

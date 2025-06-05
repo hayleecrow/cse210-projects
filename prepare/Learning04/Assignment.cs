@@ -11,10 +11,15 @@ class Assignment
     }
     public string GetSummary()
     {
+        Test();
         return $"{_studentName} - {_topic}";
     }
     public string GetName()
     {
         return _studentName;
+    }
+    private void Test()
+    {
+        Console.WriteLine("getting summary");
     }
 }
