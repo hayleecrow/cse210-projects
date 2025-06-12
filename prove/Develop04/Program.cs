@@ -22,8 +22,7 @@ Select a choice from the menu: ");
             if (choice == 1)
             {
                 string name = "Breathing";
-                string start = @"This activity will help you relax by walking you through breathing in and out slowly.
- Clear your mind and focus on your breathing.";
+                string start = @"This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.";
                 string end = @"";
                 int time = 0;
                 Breathing breathes = new Breathing(name, start, end, time);
