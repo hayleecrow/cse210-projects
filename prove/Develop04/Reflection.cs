@@ -35,16 +35,20 @@ public class Reflection : Activity
         DateTime target = now.AddSeconds(base.GetTime());
 
         DisplayPrompt();
-        Console.WriteLine($"Now ponder on each of the following questions as they relate to this experience.");
-        Console.Write($"You may begin in:  ");
-        base.Countdown(5);
 
-        Console.Clear();
-
-        while (DateTime.Now < target)
+        if (DateTime.Now < target)
         {
-            DisplaySecondPrompt();
-            base.ShowSpinner(12); //
+            Console.WriteLine($"Now ponder on each of the following questions as they relate to this experience.");
+            Console.Write($"You may begin in:  ");
+            base.Countdown(5);
+
+            Console.Clear();
+
+            while (DateTime.Now < target)
+            {
+                DisplaySecondPrompt();
+                base.ShowSpinner(4); //
+            }
         }
 
         Console.WriteLine();
