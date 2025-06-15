@@ -2,7 +2,7 @@ using System;
 
 public class Breathing : Activity
 {
-    public Breathing(string name, string start, string end, int time) : base(name, start, end, time)
+    public Breathing(string name, string start) : base(name, start)
     {
         // string name = "";
         // string start = "";
@@ -13,19 +13,28 @@ public class Breathing : Activity
     {
         base.DisplayStartPrompt();
 
-        // loop for countdown??
-        // repeats breathe in and out for certain amount of time
+        int seconds = base.GetTime();
+        DateTime now = DateTime.Now;
+        DateTime target = now.AddSeconds(seconds);
+
+        while (DateTime.Now < target) // repeats breathe in and out for certain amount of time
+        {
+            BreatheIn();
+            BreatheOut();
+
+            Console.WriteLine();
+        }
 
         base.DisplayEndPrompt();
     }
-    private void BreathIn()
+    private void BreatheIn()
     {
-        Console.Write("Breathe in...");
-        // base.Countdown(4);
+        Console.Write("Breathe in... ");
+        base.Countdown(4);
     }
-    private void BreathOut()
+    private void BreatheOut()
     {
-        Console.Write("Now breathe out...");
-        // base.Countdown(6);
+        Console.Write("Now breathe out... ");
+        base.Countdown(6);
     }
 }
