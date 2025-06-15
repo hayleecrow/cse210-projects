@@ -4,14 +4,12 @@ public class Activity
 {
     private string _name;
     private string _startPrompt;
-    private string _endPrompt;
     private int _time;
-    public Activity(string name, string start, string end, int time)
+    public Activity(string name, string start)
     {
         _name = name;
         _startPrompt = start;
-        _endPrompt = end;
-        _time = time;
+        _time = 0;
     }
     public void DisplayStartPrompt()
     {
@@ -19,27 +17,61 @@ public class Activity
         Console.WriteLine($"\nWelcome to the {_name} Activity.\n");
         Console.WriteLine(_startPrompt);
         Console.Write($"\nHow long, in seconds, would you like for your session? ");
+
         _time = int.Parse(Console.ReadLine());
 
         Console.Clear();
 
-        Console.WriteLine("Get ready...\n");
-        Console.ReadLine(); // ShowSpinner();
+        Console.Write("Get ready... ");
+        ShowSpinner(4);
+
+        Console.WriteLine();
     }
     public void DisplayEndPrompt()
     {
         Console.WriteLine("Well done!!");
-        Console.ReadLine(); // ShowSpinner();
+        ShowSpinner(4);
 
         Console.WriteLine($"You have completed {_time} seconds of the {_name} Activity.");
-        Console.ReadLine(); // ShowSpinner();
+        ShowSpinner(4);
     }
-    public string ShowSpinner() // pass in a time
+    public void ShowSpinner(int repeats) // pass in a time
     {
-        return "";
+        for (int i = 0; i < repeats; i++)
+        {
+            Console.Write($"\b-");
+            Thread.Sleep(200);
+
+            Console.Write("\b\\");
+            Thread.Sleep(200);
+
+            Console.Write($"\b|");
+            Thread.Sleep(200);
+
+            Console.Write($"\b/");
+            Thread.Sleep(200);
+        }
+        Console.WriteLine($"\b ");
     }
-    public string Countdown() // pass in a time
+    public void Countdown(int seconds) // pass in a time
     {
-        return "";
+        DateTime now = DateTime.Now;
+        DateTime target = now.AddSeconds(seconds);
+
+        int countdown = seconds;
+
+        while (DateTime.Now < target)
+        {
+            Console.Write($"\b{countdown}");
+
+            Thread.Sleep(1000);
+
+            countdown--;
+        }
+        Console.WriteLine($"\b ");
+    }
+    public int GetTime()
+    {
+        return _time;
     }
 }
