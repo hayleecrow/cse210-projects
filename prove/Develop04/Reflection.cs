@@ -4,7 +4,7 @@ public class Reflection : Activity
 {
     private List<string> _prompts;
     private List<string> _secondPrompts;
-    public Reflection(string name, string start, string end, int time) : base(name, start, end, time)
+    public Reflection(string name, string start) : base(name, start)
     {
         _prompts = new List<string>
         {
@@ -31,24 +31,40 @@ public class Reflection : Activity
     {
         base.DisplayStartPrompt();
 
+        DateTime now = DateTime.Now;
+        DateTime target = now.AddSeconds(base.GetTime());
+
         DisplayPrompt();
         Console.WriteLine($"Now ponder on each of the following questions as they relate to this experience.");
-        Console.Write($"You may begin in: ");
-        Console.ReadLine(); // base.Countdown(5);
+        Console.Write($"You may begin in:  ");
+        base.Countdown(5);
 
-        // loop until time is up
-        DisplaySecondPrompt();
-        Console.ReadLine(); // base.ShowSpinner();
+        Console.Clear();
 
+        while (DateTime.Now < target)
+        {
+            DisplaySecondPrompt();
+            base.ShowSpinner(12); //
+        }
+
+        Console.WriteLine();
         base.DisplayEndPrompt();
     }
     private string GetRandPrompt()
     {
-        return "prompt?";
+        Random random = new Random();
+        int index = random.Next(0, _prompts.Count());
+        return _prompts[index];
     }
     private string GetSecondRandPrompt()
     {
-        return "prompt 2.0?";
+        Random random = new Random();
+        int index = random.Next(0, _secondPrompts.Count());
+        string prompt = _secondPrompts[index];
+
+        // _secondPrompts.Remove(_secondPrompts[index]); // to avoid using the same prompt twice, subtract the used prompt from the list of prompts
+
+        return prompt;
     }
     private void DisplayPrompt()
     {
@@ -57,11 +73,11 @@ public class Reflection : Activity
         Console.WriteLine($" --- {prompt} ---"); // display prompt
         Console.WriteLine("When you have something in mind, press enter to continue.");
         Console.ReadLine();
-        // to avoid using the same prompt twice, subtract the used prompt from the list of prompts
     }
     private void DisplaySecondPrompt()
     {
-        string prompt2 = GetSecondRandPrompt();
-        Console.Write($"> {prompt2} ");
+        string prompt = GetSecondRandPrompt();
+        Console.Write($"> {prompt}  ");
+        _secondPrompts.Remove(prompt);
     }
 }
