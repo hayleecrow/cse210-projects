@@ -5,7 +5,7 @@ public class Listing : Activity
     private List<string> _prompts;
     private List<string> _answers;
     private int _listNum;
-    public Listing(string name, string start, string end, int time) : base(name, start, end, time)
+    public Listing(string name, string start) : base(name, start)
     {
         _prompts = new List<string>
         {
@@ -14,8 +14,7 @@ public class Listing : Activity
             "Who are people that you have helped this week?",
             "When have you felt the Holy Ghost this month?",
             "Who are some of your personal heroes?",
-            "",
-        }; // add my own prompts
+        };
 
         _answers = new List<string> { };
 
@@ -25,31 +24,37 @@ public class Listing : Activity
     {
         base.DisplayStartPrompt();
 
+        DateTime now = DateTime.Now;
+        DateTime target = now.AddSeconds(base.GetTime());
+
         DisplayPrompt();
-        CollectAnswers();
+
+        while (DateTime.Now < target)
+        {
+            CollectAnswer();
+        }
+
+        int count = _answers.Count();
+        Console.WriteLine($"You listed {count} items!\n");
 
         base.DisplayEndPrompt();
     }
     private string GetRandPrompt()
     {
-        return "prompt?";
+        Random random = new Random();
+        int index = random.Next(0, _prompts.Count());
+        return _prompts[index];
     }
     private void DisplayPrompt()
     {
-        Console.WriteLine($"List as many responses as you can to the following prompt:");
-        Console.WriteLine($"  --- {GetRandPrompt()} ---");
-        Console.Write($"You many begin in: ");
-        Console.ReadLine(); // base.Countdown(5);
+        Console.WriteLine($"List as many responses as you can to the following prompt:\n");
+        Console.WriteLine($"  --- {GetRandPrompt()} ---\n");
+        Console.Write($"You many begin in:  ");
+        base.Countdown(5);
     }
-    private void CollectAnswers()
+    private void CollectAnswer()
     {
-        for (int i = 0; i < 4; i++)
-        {
-            Console.Write($"> ");
-            _answers.Add(Console.ReadLine());
-        }
-        int count = _answers.Count();
-
-        Console.WriteLine($"You listed {count} items!\n");
+        Console.Write($"> ");
+        _answers.Add(Console.ReadLine());
     }
 }
