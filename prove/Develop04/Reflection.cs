@@ -4,6 +4,7 @@ public class Reflection : Activity
 {
     private List<string> _prompts;
     private List<string> _secondPrompts;
+    private List<string> _originalSecondPrompts;
     public Reflection(string name, string start) : base(name, start)
     {
         _prompts = new List<string>
@@ -12,10 +13,10 @@ public class Reflection : Activity
             "Think of a time when you did something really difficult.",
             "Think of a time when you helped someone in need.",
             "Think of a time when you did something truly selfless.",
-        }; // add my own prompts
+        };
 
         _secondPrompts = new List<string>
-        { 
+        {
             "Why was this experience meaningful to you?",
             "Have you ever done anything like this before?",
             "How did you get started?",
@@ -25,7 +26,13 @@ public class Reflection : Activity
             "What could you learn from this experience that applies to other situations?",
             "What did you learn about yourself through this experience?",
             "How can you keep this experience in mind in the future?",
-        }; // add my own prompts
+        };
+
+        _originalSecondPrompts = new List<string> { };
+        foreach (string prompt in _secondPrompts)
+        {
+            _originalSecondPrompts.Add(prompt);
+        }
     }
     public void Run()
     {
@@ -47,7 +54,12 @@ public class Reflection : Activity
             while (DateTime.Now < target)
             {
                 DisplaySecondPrompt();
-                base.ShowSpinner(4); //
+                base.ShowSpinner(12);
+                
+                if (_secondPrompts.Count() == 0)
+                {
+                    _secondPrompts = _originalSecondPrompts;
+                }
             }
         }
 
@@ -66,15 +78,15 @@ public class Reflection : Activity
         int index = random.Next(0, _secondPrompts.Count());
         string prompt = _secondPrompts[index];
 
-        // _secondPrompts.Remove(_secondPrompts[index]); // to avoid using the same prompt twice, subtract the used prompt from the list of prompts
+        _secondPrompts.Remove(_secondPrompts[index]); // to avoid using the same prompt twice, subtract the used prompt from the list of prompts
 
         return prompt;
     }
     private void DisplayPrompt()
     {
         string prompt = GetRandPrompt();
-        Console.WriteLine("Consider the following prompt:");
-        Console.WriteLine($" --- {prompt} ---"); // display prompt
+        Console.WriteLine("Consider the following prompt:\n");
+        Console.WriteLine($" --- {prompt} ---\n"); // display prompt
         Console.WriteLine("When you have something in mind, press enter to continue.");
         Console.ReadLine();
     }
