@@ -27,6 +27,7 @@ class Program
     6. Quit
 Select a choice from the menu: ");
             string choice = Console.ReadLine();
+            Console.WriteLine();
 
             if (choice == "1")
             {
