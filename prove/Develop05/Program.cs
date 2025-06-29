@@ -17,6 +17,7 @@ class Program
         {
             // Console.Clear();
             Console.WriteLine($"You have {game.GetScore()} points.");
+            Console.WriteLine();
 
             Console.Write(@$"Menu Options:
     1. Create New Goal
