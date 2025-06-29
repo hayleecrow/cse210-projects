@@ -53,7 +53,6 @@ Select a choice from the menu: ");
             {
                 quit = "yes";
 
-                Console.WriteLine();
                 Console.WriteLine("Bye! Come again!");
             }
             else
