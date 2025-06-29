@@ -24,6 +24,10 @@ class Eternal : Goal
     }
     public override string SaveString()
     {
-        return $"{base.SaveString()} ";
+        return $"{base.SaveString()}~~{_totalPoints}~~{_timesCompleted}";
+    }
+    public override string DisplayString()
+    {
+        return $"{base.DisplayString()} -- Completed {_timesCompleted} times ({_totalPoints} points)";
     }
 }
