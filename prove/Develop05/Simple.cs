@@ -21,6 +21,6 @@ class Simple : Goal
     }
     public override string SaveString()
     {
-        return $"{base.SaveString()} ";
+        return $"{base.SaveString()}~~{_completion}";
     }
 }
