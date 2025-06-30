@@ -1,8 +1,9 @@
 using System;
 
-// stretch idea: add pauses and clear console at certain points
-// show how many points earned and how many times completed so far in eternal goal
-// 
+// Showing Creativity: The Eternal Goal class stores how many
+// times the user accomplished the goal and how many points they earned.
+// There are also a couple places where else statements display an invalid
+// message when the user inputs something that is not an option.
 
 class Program
 {
@@ -59,7 +60,7 @@ Select a choice from the menu: ");
             else
             {
                 Console.WriteLine($"Sorry, that's not a valid option.");
-                // Thread.Sleep(5000);
+                Thread.Sleep(5000);
             }
 
             Console.WriteLine();

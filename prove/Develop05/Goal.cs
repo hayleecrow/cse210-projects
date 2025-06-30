@@ -13,14 +13,23 @@ class Goal
         _name = name;
         _description = description;
         _points = points;
+        _completion = false;
+    }
+    public Goal(string goalType, string name, string description, int points, bool completion)
+    { 
+        _goalType = goalType;
+        _name = name;
+        _description = description;
+        _points = points;
+        _completion = completion;
     }
     public virtual void IsComplete()
     {
-        //
+        _completion = true;
     }
-    public virtual void RecordEvent()
+    public void RecordEvent()
     {
-        //
+        IsComplete();
     }
     public virtual string SaveString()
     {
@@ -36,12 +45,16 @@ class Goal
 
         return $"[{x}] {_name} ({_description})";
     }
-    public int GetPoints()
+    public virtual int GetPoints()
     {
         return _points;
     }
-    public void SetCompletion(bool completed)
+    public bool GetCompletion()
     {
-        _completion = completed;
+        return _completion;
+    }
+    public string GetName()
+    {
+        return _name;
     }
 }

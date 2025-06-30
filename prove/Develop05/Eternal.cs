@@ -16,11 +16,8 @@ class Eternal : Goal
     }
     public override void IsComplete()
     {
-        base.IsComplete();
-    }
-    public override void RecordEvent()
-    {
-        base.RecordEvent();
+        _timesCompleted++;
+        _totalPoints = _totalPoints + base.GetPoints();
     }
     public override string SaveString()
     {

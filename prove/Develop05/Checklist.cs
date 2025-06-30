@@ -16,14 +16,20 @@ class Checklist : Goal
         _bonusPoints = bonus;
         _targetCount = target;
         _currentCount = current;
+
+        if (_currentCount >= _targetCount)
+        {
+            base.IsComplete();
+        }
     }
     public override void IsComplete()
     {
-        base.IsComplete();
-    }
-    public override void RecordEvent()
-    {
-        base.RecordEvent();
+        _currentCount++;
+
+        if (_currentCount >= _targetCount)
+        {
+            base.IsComplete();
+        }
     }
     public override string SaveString()
     {
@@ -32,5 +38,16 @@ class Checklist : Goal
     public override string DisplayString()
     {
         return $"{base.DisplayString()} -- Currently Completed: {_currentCount}/{_targetCount}";
+    }
+    public override int GetPoints()
+    {
+        if (_currentCount == _targetCount)
+        {
+            return base.GetPoints() + _bonusPoints;
+        }
+        else
+        {
+            return base.GetPoints();
+        }
     }
 }

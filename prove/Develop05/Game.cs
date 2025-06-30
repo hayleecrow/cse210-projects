@@ -187,7 +187,25 @@ Which type of goal would you like to create? ");
         Console.WriteLine($"The file {filename} has been loaded.");
     }
     public void NewEvent()
-    { 
-        //
+    {
+        Console.WriteLine(@$"Your goals are:");
+        int num = 0;
+        foreach (Goal goal in _goals)
+        {
+            num++;
+            Console.WriteLine($"    {num}. {goal.GetName()}");
+        }
+        Console.Write($"What goal did you accomplish?! ");
+        int i = int.Parse(Console.ReadLine()) - 1;
+        Console.WriteLine();
+
+        Goal done = _goals[i];
+        done.RecordEvent();
+
+        int points = done.GetPoints();
+        Console.WriteLine($"Congratulations! You have earned {points} points");
+        _totalScore = _totalScore + points;
+
+        Console.WriteLine($"You now have {_totalScore} points.");
     }
 }
