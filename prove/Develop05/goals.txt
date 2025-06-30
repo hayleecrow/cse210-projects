@@ -1,0 +1,5 @@
+290
+Simple Goal|Give a talk~~Speak in Sacrament meeting~~10~~True
+Eternal Goal|Study Scriptures~~Study for 10 mins~~20~~60~~3
+Checklist Goal|Attend the temple~~Perform an ordinance~~30~~100~~3~~4
+Eternal Goal|Family Time~~Spend 10 mins with family, everyday.~~100~~0~~0
