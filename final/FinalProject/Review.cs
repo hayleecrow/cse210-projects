@@ -4,10 +4,11 @@ class Review
 {
     private List<string> _prompts;
     private string _review;
+    // private int _stars; ???
     public Review()
     {
         // prompts
-        _review = "";
+        _review = "n/a";
     }
     public Review(string review)
     {
@@ -18,12 +19,12 @@ class Review
     {
         //
     }
-    public void DisplayReview()
+    public void DisplayReview() // unneeded this method
     {
-        //
+        // 
     }
-    public string SaveReview()
+    public string GetReview() // renamed SaveReview()
     {
-        return "";
+        return _review;
     }
 }

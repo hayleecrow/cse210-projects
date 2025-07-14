@@ -6,7 +6,7 @@ class StandAlone : Book
     {
         //
     }
-    public StandAlone(string name, string author, string genre, string started, string finished, Review review) : base(name, author, genre, started, finished, review)
+    public StandAlone(string name, string author, string genre, string started, string finished, string review) : base(name, author, genre, started, finished, review)
     { 
         //
     }
