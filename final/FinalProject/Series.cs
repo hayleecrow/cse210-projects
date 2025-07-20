@@ -5,13 +5,15 @@ class Series : Book
     // maybe create series list List<Series> _seriesBooks
     private string _seriesName;
     private int _bookNum;
-    public Series(string name, string author, string genre, string seriesName, int bookNum) : base(name, author, genre)
+    public Series(string name, string author, string seriesName, int bookNum) : base(name, author)
     {
-        //
+        _seriesName = seriesName;
+        _bookNum = bookNum;
     }
-    public Series(string name, string author, string genre, string seriesName, int bookNum, string started, string finished, string review) : base(name, author, genre, started, finished, review)
+    public Series(string name, string author, string seriesName, int bookNum, string started, string finished, string review) : base(name, author, started, finished, review)
     {
-        //
+        _seriesName = seriesName;
+        _bookNum = bookNum;
     }
     public override string SaveString()
     {
@@ -19,7 +21,7 @@ class Series : Book
     }
     public override void DisplayBook()
     {
-        base.DisplayBook();
-        Console.WriteLine($"    {_seriesName} Book {_bookNum}");
+        Console.WriteLine(@$"{_name} by {_author} ({_seriesName} Book {_bookNum})
+     Started: {_dateStarted} -- Finished: {_dateFinished}");
     }
 }

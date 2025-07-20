@@ -19,11 +19,8 @@ class Booklists
         Console.Write($"Who is the author? ");
         string author = Console.ReadLine();
 
-        Console.Write($"What genre is it? ");
-        string genre = Console.ReadLine();
-
         int a = 0;
-        Book newBook = new StandAlone("name", "author", "genre");
+        Book newBook = new StandAlone("name", "author");
         while (a == 0)
         {
             Console.Write($"Is the book a standalone (1) or part of a series (2)? ");
@@ -33,7 +30,7 @@ class Booklists
             {
                 a = 3;
 
-                newBook = new StandAlone(name, author, genre);
+                newBook = new StandAlone(name, author);
             }
             else if (type == "2")
             {
@@ -45,7 +42,7 @@ class Booklists
                 Console.Write($"What book number is it (enter an integer)? ");
                 int bookNum = int.Parse(Console.ReadLine());
 
-                newBook = new Series(name, author, genre, seriesName, bookNum);
+                newBook = new Series(name, author, seriesName, bookNum);
             }
             else
             {
@@ -64,9 +61,10 @@ class Booklists
         book.SetDateStarted(date);
         _started.Add(book);
     }
-    public void AddFinished(Book book, string date)
+    public void AddFinished(Book book, string date, Review review)
     {
         book.SetDateFinished(date);
+        book.SetReview(review);
         _finished.Add(book);
     }
     public void RemoveFromToRead(int index)

@@ -29,14 +29,14 @@ class Program
 What would you like to do? ");
             string choice = Console.ReadLine();
 
-            if (choice == "1")
+            if (choice == "1") // Add book to TBR list
             {
                 Book book = booklists.NewBook();
                 booklists.AddToRead(book);
             }
-            else if (choice == "2")
+            else if (choice == "2") // Add book to Started list
             {
-                Console.WriteLine($"Is the book you started currently on your TBR list (yes or no)? ");
+                Console.Write($"Is the book you started currently on your TBR list (yes or no)? ");
                 string answer = Console.ReadLine();
 
                 if (answer.ToLower() == "yes")
@@ -47,7 +47,7 @@ What would you like to do? ");
                     Console.Write($"What book did you start? ");
                     int index = int.Parse(Console.ReadLine()) - 1;
 
-                    Console.WriteLine($"What day did you start it (MM/DD)");
+                    Console.Write($"What day did you start it (MM/DD)? ");
                     string date = Console.ReadLine();
 
                     booklists.AddStarted(toReadList[index], date); // add to start list
@@ -67,21 +67,35 @@ What would you like to do? ");
                     //
                 }
             }
-            else if (choice == "3")
+            else if (choice == "3") // Add book to Finished list
             {
                 List<Book> startList = booklists.GetStarted();
                 booklists.DisplayList(startList); // display start list and have them choose book
 
                 Console.Write($"What book did you finish? ");
                 int index = int.Parse(Console.ReadLine()) - 1;
+                Book bookToAdd = startList[index];
 
                 Console.Write($"What day did you finish it (MM/DD)? ");
                 string date = Console.ReadLine();
 
-                booklists.AddFinished(startList[index], date); // add to finished list
+                Console.Write($"Would you like to write a review for this book? ");
+                string writeReview = Console.ReadLine();
+
+                Review review = new Review();
+                if (writeReview.ToLower() == "yes")
+                {
+                    review.WriteReview();
+                }
+                else if (writeReview.ToLower() == "no")
+                {
+                    // some message abt it being okay
+                }
+
+                booklists.AddFinished(bookToAdd, date, review); // add to finished list
                 booklists.RemoveFromStarted(index); // remove from started list
             }
-            else if (choice == "4") // display a list
+            else if (choice == "4") // Display a list
             {
                 Console.Write(@$"What list would you like to display? 
     1. To Be Read
@@ -102,6 +116,8 @@ What would you like to do? ");
                 {
                     booklists.DisplayList(booklists.GetFinished());
                 }
+                
+                // create pause with Console.ReadLine();
             }
             else if (choice == "5") // display reading history
             {
