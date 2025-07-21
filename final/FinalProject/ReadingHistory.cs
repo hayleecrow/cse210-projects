@@ -23,8 +23,8 @@ class ReadingHistory
             Console.WriteLine($"     {i}");
         }
     }
-    public void SaveHistory()
-    { 
-        //
+    public List<string> GetHistory()
+    {
+        return _history;
     }
 }

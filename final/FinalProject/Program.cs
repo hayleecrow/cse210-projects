@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.Clear();
+        // Console.Clear();
         Booklists booklists = new Booklists();
         ReadingHistory readingHistory = new ReadingHistory();
 
@@ -139,7 +139,12 @@ What would you like to do? ");
                     outputFile.Write($"{booklists.SaveList(booklists.GetToRead())}%%");
                     outputFile.Write($"{booklists.SaveList(booklists.GetStarted())}%%");
                     outputFile.Write($"{booklists.SaveList(booklists.GetFinished())}%%");
-                    // reading history info
+
+                    List<string> history = readingHistory.GetHistory();
+                    foreach (string line in history)
+                    {
+                        outputFile.Write($"\n{line}");// save reading history info
+                    }
                 }
             }
             else if (choice == "8") // load info
@@ -157,7 +162,19 @@ What would you like to do? ");
 
                 string[] lists = full.Split("%%");
                 booklists.LoadLists(lists);
-                // then load reading history
+
+                // Load reading history
+                string stringHistory = lists[3];
+                string[] arrayHistory = stringHistory.Split("\n");
+                
+                List<string> history = new List<string> { };
+                foreach (string line in arrayHistory)
+                {
+                    history.Add(line);
+                }
+                history.Remove(history[0]); // remove extra line
+
+                readingHistory = new ReadingHistory(history);
 
                 Console.WriteLine("File loaded.");
             }
