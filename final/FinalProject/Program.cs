@@ -79,7 +79,7 @@ What would you like to do? ");
                 Console.Write($"What day did you finish it (MM/DD)? ");
                 string date = Console.ReadLine();
 
-                Console.Write($"Would you like to write a review for this book? ");
+                Console.Write($"Would you like to write a review for this book (yes or no)? ");
                 string writeReview = Console.ReadLine();
 
                 Review review = new Review();
@@ -116,7 +116,7 @@ What would you like to do? ");
                 {
                     booklists.DisplayList(booklists.GetFinished());
                 }
-                
+
                 // create pause with Console.ReadLine();
             }
             else if (choice == "5") // display reading history
@@ -129,13 +129,37 @@ What would you like to do? ");
             }
             else if (choice == "7") // save info
             {
-                //
+                Console.Write("What is the name of your file? ");
+                string filename = Console.ReadLine();
+
+                using (StreamWriter outputFile = new StreamWriter(filename))
+                {
+                    outputFile.Write($"{booklists.SaveList(booklists.GetToRead())}%%");
+                    outputFile.Write($"{booklists.SaveList(booklists.GetStarted())}%%");
+                    outputFile.Write($"{booklists.SaveList(booklists.GetFinished())}%%");
+                    // reading history info
+                }
             }
             else if (choice == "8") // load info
             {
-                //
+                Console.Write("What is the name of your file? ");
+                string filename = Console.ReadLine();
+
+                string[] lines = System.IO.File.ReadAllLines(filename);
+
+                string full = "";
+                foreach (string line in lines)
+                {
+                    full = $"{full}\n{line}";
+                }
+
+                string[] lists = full.Split("%%");
+                booklists.LoadLists(lists);
+                // then load reading history
+
+                Console.WriteLine("File loaded.");
             }
-            else if (choice == "9")
+            else if (choice == "9") // quit
             {
                 quit = "yes";
             }

@@ -17,11 +17,12 @@ class Series : Book
     }
     public override string SaveString()
     {
-        return base.SaveString();
+        return $"Series||{base.SaveString()}||{_seriesName}||{_bookNum}";
     }
     public override void DisplayBook()
     {
         Console.WriteLine(@$"{_name} by {_author} ({_seriesName} Book {_bookNum})
-     Started: {_dateStarted} -- Finished: {_dateFinished}");
+     Started: {_dateStarted} -- Finished: {_dateFinished}
+     Review: {_review.GetReview()}");
     }
 }

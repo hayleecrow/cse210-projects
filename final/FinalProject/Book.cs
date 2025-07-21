@@ -6,7 +6,7 @@ class Book
     protected string _author;
     protected string _dateStarted;
     protected string _dateFinished;
-    private Review _review;
+    protected Review _review;
     public Book(string name, string author)
     {
         _name = name;
@@ -25,7 +25,7 @@ class Book
     }
     public virtual string SaveString()
     {
-        return $"";
+        return $"{_name}||{_author}||{_dateStarted}||{_dateFinished}||{_review.GetReview()}";
     }
     public virtual void DisplayBook()
     {

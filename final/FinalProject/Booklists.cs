@@ -85,13 +85,61 @@ class Booklists
             book.DisplayBook();
         }
     }
-    public void SaveList(List<Book> list)
+    public string SaveList(List<Book> list)
     {
-        //
+        string fullString = "";
+        foreach (Book book in list)
+        {
+            fullString = $"{fullString}\n{book.SaveString()}";
+        }
+
+        return fullString;
     }
-    public void LoadList(List<Book> list)
+    public void LoadLists(string[] lists)
     {
-        //
+        _toRead.Clear();
+        _started.Clear();
+        _finished.Clear();
+
+        _toRead = MakeBookList(lists[0]);
+        _started = MakeBookList(lists[1]);
+        _finished = MakeBookList(lists[2]);
+    }
+    private List<Book> MakeBookList(string bookListStr)
+    {
+        string[] books = bookListStr.Split($"\n");
+
+        List<Book> booklist = new List<Book> { };
+        foreach (string book in books)
+        {
+            string[] parts = book.Split("||");
+            string bookType = parts[0];
+
+            if (bookType == "StandAlone")
+            {
+                string name = parts[1];
+                string author = parts[2];
+                string started = parts[3];
+                string finished = parts[4];
+                string review = parts[5];
+                StandAlone newBook = new StandAlone(name, author, started, finished, review);
+                booklist.Add(newBook);
+            }
+            else if (bookType == "Series")
+            {
+                string name = parts[1];
+                string author = parts[2];
+                string started = parts[3];
+                string finished = parts[4];
+                string review = parts[5];
+                string seriesName = parts[6];
+                int bookNum = int.Parse(parts[7]);
+                Series newBook = new Series(name, author, seriesName, bookNum, started, finished, review);
+                booklist.Add(newBook);
+            }
+        }
+
+        return booklist;
     }
     public List<Book> GetToRead()
     {
