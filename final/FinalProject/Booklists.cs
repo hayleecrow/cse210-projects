@@ -100,6 +100,7 @@ class Booklists
         _toRead.Clear();
         _started.Clear();
         _finished.Clear();
+        // clear reading history
 
         _toRead = MakeBookList(lists[0]);
         _started = MakeBookList(lists[1]);

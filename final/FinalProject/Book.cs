@@ -33,10 +33,10 @@ class Book
      Started: {_dateStarted} -- Finished: {_dateFinished}
      Review: {_review.GetReview()}");
     }
-    // public virtual void DisplayReview()
-    // {
-    //     Console.WriteLine(@$"Review: {_review.GetReview()}");
-    // }
+    public string GetDateStarted()
+    {
+        return _dateStarted;
+    }
     public void SetDateStarted(string start)
     {
         _dateStarted = start;
@@ -48,5 +48,13 @@ class Book
     public void SetReview(Review review)
     {
         _review = review;
+    }
+    public string GetBookName()
+    {
+        return _name;
+    }
+    public string GetAuthor()
+    {
+        return _author;
     }
 }

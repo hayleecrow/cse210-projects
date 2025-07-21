@@ -6,6 +6,7 @@ class Program
     {
         Console.Clear();
         Booklists booklists = new Booklists();
+        ReadingHistory readingHistory = new ReadingHistory();
 
         Console.WriteLine($"Welcome to the Bookworm Reading Guide!");
 
@@ -94,6 +95,7 @@ What would you like to do? ");
 
                 booklists.AddFinished(bookToAdd, date, review); // add to finished list
                 booklists.RemoveFromStarted(index); // remove from started list
+                readingHistory.AddHistory(bookToAdd.GetBookName(), bookToAdd.GetAuthor(), bookToAdd.GetDateStarted(), date); // add to reading history
             }
             else if (choice == "4") // Display a list
             {
@@ -121,7 +123,7 @@ What would you like to do? ");
             }
             else if (choice == "5") // display reading history
             {
-                //
+                readingHistory.DisplayHistory();
             }
             else if (choice == "6") // memorize quote activity
             {
