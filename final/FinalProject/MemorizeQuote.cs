@@ -4,13 +4,11 @@ class MemorizeQuote
 {
     private string _fullQuote;
     private List<string> _words;
-    // private int _wordCount;
     private int _wordsHidden;
     public MemorizeQuote()
     {
         _fullQuote = "";
         _words = new List<string> { };
-        // _wordCount = 1;
         _wordsHidden = 0;
     }
     public void InputQuote()
@@ -19,7 +17,6 @@ class MemorizeQuote
         _fullQuote = Console.ReadLine();
 
         _words = ConvertStringToList(_fullQuote);
-        // _wordCount = _words.Count();
     }
     private List<string> ConvertStringToList(string quote)
     {
@@ -56,7 +53,7 @@ class MemorizeQuote
                 {
                     index = random.Next(0, _words.Count());
                     chosen = _words[index];
-                    chosenHidden = HideWord(chosen); // to test if word is already hidden or not
+                    chosenHidden = HideWord(chosen);
                 }
 
                 _words[index] = chosenHidden;

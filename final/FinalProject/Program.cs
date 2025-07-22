@@ -4,7 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Console.Clear();
         Booklists booklists = new Booklists();
         ReadingHistory readingHistory = new ReadingHistory();
 
@@ -14,8 +13,6 @@ class Program
 
         while (quit == "no")
         {
-            // Console.Clear();
-
             Console.WriteLine();
             Console.Write(@$"You can do the following?
     1. Add a Book to My TBR (To Be Read)
@@ -63,10 +60,6 @@ What would you like to do? ");
 
                     booklists.AddStarted(book, date);
                 }
-                else
-                {
-                    //
-                }
             }
             else if (choice == "3") // Add book to Finished list
             {
@@ -87,10 +80,6 @@ What would you like to do? ");
                 if (writeReview.ToLower() == "yes")
                 {
                     review.WriteReview();
-                }
-                else if (writeReview.ToLower() == "no")
-                {
-                    // some message abt it being okay
                 }
 
                 booklists.AddFinished(bookToAdd, date, review); // add to finished list
@@ -118,8 +107,6 @@ What would you like to do? ");
                 {
                     booklists.DisplayList(booklists.GetFinished());
                 }
-
-                // create pause with Console.ReadLine();
             }
             else if (choice == "5") // display reading history
             {
@@ -168,7 +155,7 @@ What would you like to do? ");
                     List<string> history = readingHistory.GetHistory();
                     foreach (string line in history)
                     {
-                        outputFile.Write($"\n{line}");// save reading history info
+                        outputFile.Write($"\n{line}"); // save reading history info
                     }
                 }
             }
@@ -206,10 +193,6 @@ What would you like to do? ");
             else if (choice == "9") // quit
             {
                 quit = "yes";
-            }
-            else
-            {
-                //
             }
         }
     }

@@ -4,7 +4,6 @@ class Review
 {
     private List<string> _prompts;
     private string _review;
-    // private int _stars;
     public Review()
     {
         _prompts = new List<string>

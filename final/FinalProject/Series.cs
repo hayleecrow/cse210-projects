@@ -2,7 +2,6 @@ using System;
 
 class Series : Book
 {
-    // maybe create series list List<Series> _seriesBooks
     private string _seriesName;
     private int _bookNum;
     public Series(string name, string author, string seriesName, int bookNum) : base(name, author)
