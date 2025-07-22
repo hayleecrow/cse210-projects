@@ -127,7 +127,32 @@ What would you like to do? ");
             }
             else if (choice == "6") // memorize quote activity
             {
-                //
+                MemorizeQuote activity = new MemorizeQuote();
+
+                activity.InputQuote();
+                Console.WriteLine();
+
+                while (activity.GetWordCount() > activity.GetHiddenWordCount())
+                {
+                    Console.Clear();
+                    Console.WriteLine($"Here is your quote. Start Memorizing!\n");
+                    activity.DisplayQuote();
+
+                    Console.Write($"\n\nPress enter to hide 3 words.");
+                    Console.ReadLine();
+
+                    activity.HideRandomWords();
+
+                    if (activity.GetWordCount() == activity.GetHiddenWordCount())
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"Last time. Here is your quote. Start Memorizing!\n");
+                        activity.DisplayQuote();
+                    }
+                }
+
+                Console.Write($"\n\nWhen you're done memorizing, press enter to go to menu.");
+                Console.ReadLine();
             }
             else if (choice == "7") // save info
             {
@@ -166,7 +191,7 @@ What would you like to do? ");
                 // Load reading history
                 string stringHistory = lists[3];
                 string[] arrayHistory = stringHistory.Split("\n");
-                
+
                 List<string> history = new List<string> { };
                 foreach (string line in arrayHistory)
                 {
